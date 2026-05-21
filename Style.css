@@ -1,0 +1,308 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: rgb(244, 255, 240);
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('./Pictures/width_1301.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100%;
+    height: 100vh;
+}
+
+/* --- PROFILE PICTURE AREA --- */
+.pfp-link {
+    display: block;         
+    width: 350px;           
+    height: 350px;          
+    margin: 0 auto 20px auto; 
+    border-radius: 50%;     
+    position: relative;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pfp-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%; 
+    border-radius: 50%; 
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* Your soft white cinematic aura glow */
+.pfp-link:hover {
+    box-shadow: 0 0 5px #0022ff, 0 0 25px #1b20b4, 0 0 50px #2560b7, 0 0 200px #ffffff;
+}
+
+/* This handles the clean internal image shrink */
+.pfp-link:hover .pfp-pic {
+    transform: scale(0.95);  
+}
+
+/* EXCEPTION: This completely stops the global purple styles on line 217 from breaking your profile picture box */
+a.pfp-link:hover {
+    background-color: transparent !important;
+    background-image: none !important;
+    transform: none !important;
+}
+
+/* --- HEADER & NAVIGATION --- */
+header {
+    background: rgb(0, 0, 0);
+    color: rgba(0, 17, 255, 0.47);
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+header:hover {
+    background-color: hwb(0 100% 0% / 0.164);
+    padding: 15px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    color: #e9e9e9;
+    background-color: #2c043b;
+    background-image: linear-gradient(to right, #331544, #5f0dac);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgb(129, 74, 231);
+}
+
+section {
+    min-height: 50vh;
+    margin: 80px 20px 20px;
+    text-align: center;
+    place-items: center;
+    padding: 160px;
+    background: transparent;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(15px);
+}
+
+.icons {
+    height: 150px;
+}
+.wrapper {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+}
+
+.cardwrapper {
+    width: 80px;
+    border-radius: .75rem;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 2rem;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.cardwrapper > .row {
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.cardwrapper > .row > .description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: .3s;
+    transition: all .3s ease;
+}
+.cardwrapper > .row > .icon {
+    background: rgba(21, 5, 48, 0.7);
+    color: rgb(150, 150, 150);
+    border-radius: 50%;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+.cardwrapper:hover {
+    box-shadow: 0 0 20px #000000, 0 0 40px #19089898, 0 0 60px #4a01aa49, 0 0 80px #4a01aa49;
+}
+
+.description p {
+    color: #f8f8f8;
+    padding-top: 5px;
+}
+
+.description h4 {
+    text-transform: uppercase;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* --- HOBBY CARD WALLPAPERS --- */
+.cardwrapper[for="c1"] { background-image: url('Pictures/photo_6082271542453670717_y.jpg'); }
+.cardwrapper[for="c2"] { background-image: url('Pictures/LOL.jpg'); }
+.cardwrapper[for="c3"] { background-image: url('Pictures/photo_6082271542453670704_y.jpg'); }
+.cardwrapper[for="c4"] { background-image: url('Pictures/photo_6082271542453670722_y.jpg'); }
+.cardwrapper[for="c5"] { background-image: url('Pictures/674b3e051909840d88dcce4e6c04cb94.gif'); }
+.cardwrapper[for="c6"] { background-image: url('Pictures/photo_6082271542453670718_y.jpg'); }
+.cardwrapper[for="c7"] { background-image: url('Pictures/rico-blanco-bamboo-mañalac.gif'); }
+
+/* --- PROJECT CARDS --- */
+.card {
+    background-color: #ffffff16;
+    border-radius: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    min-width: 200px;
+    height: 330px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #ffffff66, 0 0 40px #001eff78, 0 0 60px #0241ff64;
+    background-color: rgba(255, 255, 255, 0.403);
+    color: black;
+}
+
+.c1 {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.card a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card:hover a {
+    color: black;
+}
+
+/* --- GLOBAL LINK HOVER CONFIG --- */
+a:hover {
+    color: #e9e9e9;
+    background-color: #ff0000;
+    background-image: linear-gradient(to right, #0015ff, #0015ff);
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgb(106, 99, 119);
+}
+
+footer {
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+/* 1. Make the certificate card align perfectly with the width of the row above */
+.card.certificate-card {
+    width: 100%;               /* Spans 100% of the parent container's width, matching the 5 cards */
+    max-width: 100%;           /* Prevents it from shrinking or over-stretching */
+    height: auto;
+    flex-direction: column;    /* Keeps text underneath */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 25px;          /* Clean separation space below the 5 cards */
+    box-sizing: border-box;    /* Ensures padding doesn't accidentally make it wider than the row */
+}
+
+/* 2. Make the certificate image wrapper wide and clean */
+.cert-img-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+/* 3. Scale the certificate to maximize its size inside the card boundaries */
+.cert-img-wrapper img {
+    width: 100%;               /* Stretches across the inner width of the card */
+    max-width: 750px;          /* Adjust this number up or down to change the final image size */
+    height: auto;              /* Maintains crisp, un-stretched aspect ratios */
+    object-fit: contain;
+}
+
+/* 4. Text spacing underneath */
+.cert-details {
+    width: 100%;
+    padding-top: 15px;
+    text-align: center;
+}
